@@ -13,6 +13,12 @@ const TypewriterText = ({ text, delay = 100, className = '' }: TypewriterTextPro
   const [displayText, setDisplayText] = useState('')
   const [currentIndex, setCurrentIndex] = useState(0)
 
+  // Reset animation when text changes
+  useEffect(() => {
+    setDisplayText('')
+    setCurrentIndex(0)
+  }, [text])
+
   useEffect(() => {
     if (currentIndex < text.length) {
       const timeout = setTimeout(() => {

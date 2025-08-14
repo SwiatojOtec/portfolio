@@ -93,6 +93,7 @@ export default function AnimatedSkills() {
     <section className="py-20 bg-dark-400 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div
+          key={`${t('skills.title')}-${t('skills.subtitle')}`} // Force re-render when language changes
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}

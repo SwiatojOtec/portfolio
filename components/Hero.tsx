@@ -61,6 +61,7 @@ export default function Hero() {
               )}
             </div>
             <TypewriterText
+              key={t('hero.title')} // Force re-render when language changes
               text={t('hero.title')}
               className="text-3xl md:text-4xl font-semibold text-primary-400 mb-6"
             />
@@ -74,6 +75,7 @@ export default function Hero() {
             className="text-center lg:text-left"
           >
             <motion.h1
+              key={t('hero.subtitle')} // Force re-render when language changes
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -82,6 +84,7 @@ export default function Hero() {
               {t('hero.subtitle')}
             </motion.h1>
             <motion.p
+              key={t('hero.description')} // Force re-render when language changes
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -90,6 +93,7 @@ export default function Hero() {
               {t('hero.description')}
             </motion.p>
             <motion.button
+              key={t('hero.cta')} // Force re-render when language changes
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
