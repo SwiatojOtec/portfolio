@@ -66,10 +66,10 @@ const translations = {
     'projects.photography.description': 'Професійне портфоліо фотографа Михайла Панкрат\'єва з сучасним дизайном та інтеграцією Telegram',
     'projects.photography.tech': 'HTML5, CSS3, Tailwind CSS, JavaScript, Python, Firebase, Telegram Bot API',
     'projects.photography.features': 'Завантаження фото через бота, галерея з фільтрами, хмарний бекенд, адаптивний дизайн',
-    'projects.panParket.title': 'Pan Parket - Онлайн магазин паркету',
-    'projects.panParket.description': 'Повноцінний e-commerce проект з адміністративною панеллю для управління товарами, замовленнями та користувачами',
-    'projects.panParket.tech': 'React, Node.js, Express, MongoDB, Stripe, AWS, Admin Panel',
-    'projects.panParket.features': 'Каталог товарів, корзина, оплата, адмінка, управління замовленнями, аналітика продажів',
+    'projects.panParket.title': 'Pan Parket - Система управління магазином паркету',
+    'projects.panParket.description': 'Повноцінна e-commerce система з адміністративною панеллю, складським обліком, генерацією рахунків та аналітикою продажів. Включає розрахунок по площі приміщення та управління всіма аспектами бізнесу.',
+    'projects.panParket.tech': 'React + TypeScript, Node.js + Express, PostgreSQL, Prisma ORM, JWT Auth, Multer, React Query',
+    'projects.panParket.features': 'Каталог товарів, кошик з розрахунком по площі, адмін панель, складський облік, генерація рахунків, аналітика продажів, управління замовленнями та клієнтами',
     'projects.adminDemo': 'Admin Tools Demo',
     
     // Contact Section
@@ -176,10 +176,10 @@ const translations = {
     'projects.photography.description': 'Professional photography portfolio for Михайло Панкрат\'єв with modern design and Telegram integration',
     'projects.photography.tech': 'HTML5, CSS3, Tailwind CSS, JavaScript, Python, Firebase, Telegram Bot API',
     'projects.photography.features': 'Photo upload via bot, gallery with filters, cloud backend, responsive design',
-    'projects.panParket.title': 'Pan Parket - Online Parquet Store',
-    'projects.panParket.description': 'Full-featured e-commerce project with administrative panel for managing products, orders and users',
-    'projects.panParket.tech': 'React, Node.js, Express, MongoDB, Stripe, AWS, Admin Panel',
-    'projects.panParket.features': 'Product catalog, shopping cart, payment, admin panel, order management, sales analytics',
+    'projects.panParket.title': 'Pan Parket - Parquet Store Management System',
+    'projects.panParket.description': 'Full-featured e-commerce system with administrative panel, inventory management, invoice generation and sales analytics. Includes area-based calculations and comprehensive business management.',
+    'projects.panParket.tech': 'React + TypeScript, Node.js + Express, PostgreSQL, Prisma ORM, JWT Auth, Multer, React Query',
+    'projects.panParket.features': 'Product catalog, area-based shopping cart, admin panel, inventory management, invoice generation, sales analytics, order and customer management',
     'projects.adminDemo': 'Admin Tools Demo',
     
     // Contact Section
