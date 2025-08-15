@@ -121,34 +121,7 @@ export default function Projects() {
 
 
 
-        {/* Additional Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-20 text-center"
-        >
-          <div className="bg-gradient-to-r from-primary-600/20 to-blue-600/20 rounded-2xl p-8 border border-primary-500/30">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              {t('career.cta')}
-            </h3>
-            <p className="text-gray-300 text-lg mb-6">
-              {t('career.cta.description')}
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => {
-                const contactSection = document.getElementById('contact')
-                contactSection?.scrollIntoView({ behavior: 'smooth' })
-              }}
-              className="px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors duration-300"
-            >
-              Зв&apos;язатися зі мною
-            </motion.button>
-          </div>
-        </motion.div>
+
       </div>
 
     </section>

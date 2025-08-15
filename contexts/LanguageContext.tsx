@@ -47,8 +47,8 @@ const translations = {
     // Career Timeline
     'career.title': 'Кар\'єрний шлях',
     'career.subtitle': '7+ років досвіду в управлінні проектами, від будівельної галузі до IT-сфери',
-    'career.cta': 'Готовий до нових викликів',
-    'career.cta.description': 'Поєдную досвід управління проектами з технічними навичками для створення інноваційних рішень',
+    'career.cta': 'Ready for New Challenges',
+    'career.cta.description': 'Combining project management experience with technical skills to create innovative solutions',
     
     // Projects Section
     'projects.title': 'Проекти',
