@@ -29,8 +29,8 @@ export default function Projects() {
       tech: t('projects.photography.tech'),
       features: t('projects.photography.features'),
       image: '/api/placeholder/600/400',
-      github: '#',
-      live: '#',
+      github: 'https://github.com/SwiatojOtec/photo-portfolio',
+      live: 'https://photo-pank-9a004.web.app',
       icon: Bot,
       color: 'from-purple-500 to-purple-600'
     }
@@ -82,6 +82,16 @@ export default function Projects() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                     </div>
+                  ) : project.title.includes('Photography') ? (
+                    // Картинка для Photography Portfolio
+                    <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+                      <img
+                        src="/images/photo-portfolio-screenshot.png"
+                        alt="Photography Portfolio - Михайло Панкрат'єв"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                    </div>
                   ) : (
                     // Стандартна іконка для інших проектів
                     <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
@@ -127,15 +137,29 @@ export default function Projects() {
                     <span>{t('projects.github')}</span>
                   </motion.a>
                   
-                  <motion.button
-                    onClick={() => project.title.includes('Job Scraper') ? setIsDemoModalOpen(true) : null}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center space-x-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors duration-300"
-                  >
-                    <ExternalLink size={20} />
-                    <span>{t('projects.liveDemo')}</span>
-                  </motion.button>
+                  {project.title.includes('Job Scraper') ? (
+                    <motion.button
+                      onClick={() => setIsDemoModalOpen(true)}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center space-x-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors duration-300"
+                    >
+                      <ExternalLink size={20} />
+                      <span>{t('projects.liveDemo')}</span>
+                    </motion.button>
+                  ) : (
+                    <motion.a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center space-x-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors duration-300"
+                    >
+                      <ExternalLink size={20} />
+                      <span>{t('projects.liveDemo')}</span>
+                    </motion.a>
+                  )}
                 </div>
               </motion.div>
             </motion.div>
