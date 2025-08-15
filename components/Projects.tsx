@@ -6,10 +6,12 @@ import { useLanguage } from '../contexts/LanguageContext'
 import { ExternalLink, Github, Globe, Bot } from 'lucide-react'
 
 import SimpleModal from './SimpleModal'
+import GitHubExplanationModal from './GitHubExplanationModal'
 
 export default function Projects() {
   const { t } = useLanguage()
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false)
+  const [isGitHubModalOpen, setIsGitHubModalOpen] = useState(false)
 
   const projects = [
     {
@@ -127,15 +129,27 @@ export default function Projects() {
                 </div>
 
                 <div className="flex space-x-4">
-                  <motion.a
-                    href={project.github}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center space-x-2 px-6 py-3 bg-dark-400 hover:bg-dark-500 text-white rounded-lg transition-colors duration-300 border border-primary-500/30 hover:border-primary-500/60"
-                  >
-                    <Github size={20} />
-                    <span>{t('projects.github')}</span>
-                  </motion.a>
+                  {project.title.includes('Job Scraper') ? (
+                    <motion.button
+                      onClick={() => setIsGitHubModalOpen(true)}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center space-x-2 px-6 py-3 bg-dark-400 hover:bg-dark-500 text-white rounded-lg transition-colors duration-300 border border-primary-500/30 hover:border-primary-500/60"
+                    >
+                      <Github size={20} />
+                      <span>{t('projects.github')}</span>
+                    </motion.button>
+                  ) : (
+                    <motion.a
+                      href={project.github}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center space-x-2 px-6 py-3 bg-dark-400 hover:bg-dark-500 text-white rounded-lg transition-colors duration-300 border border-primary-500/30 hover:border-primary-500/60"
+                    >
+                      <Github size={20} />
+                      <span>{t('projects.github')}</span>
+                    </motion.a>
+                  )}
                   
                   {project.title.includes('Job Scraper') ? (
                     <motion.button
@@ -202,6 +216,12 @@ export default function Projects() {
       <SimpleModal 
         isOpen={isDemoModalOpen} 
         onClose={() => setIsDemoModalOpen(false)} 
+      />
+
+      {/* GitHub Explanation Modal */}
+      <GitHubExplanationModal
+        isOpen={isGitHubModalOpen}
+        onClose={() => setIsGitHubModalOpen(false)}
       />
     </section>
   )

@@ -94,6 +94,21 @@ const translations = {
     'modal.done': 'Готово',
     'nav.changeLanguage': 'Змінити мову',
     
+    // GitHub Explanation Modal
+    'githubModal.title': 'Чому проект не на GitHub?',
+    'githubModal.subtitle': 'Пояснення етичних та юридичних аспектів',
+    'githubModal.ethical.title': 'Етичні міркування',
+    'githubModal.ethical.description': 'Я глибоко поважаю роботу сайтів з вакансіями та їх творців. Ці платформи створюють величезну цінність для роботодавців та шукачів роботи, інвестували значні ресурси в розробку та підтримку сервісів.',
+    'githubModal.legal.title': 'Юридична відповідність',
+    'githubModal.legal.description': 'Парсинг даних з комерційних сайтів може порушувати їхні умови використання та українське законодавство про захист інтелектуальної власності. Я не хочу створювати прецеденти для зловживань.',
+    'githubModal.technical.title': 'Технічний захист',
+    'githubModal.technical.description': 'Мій проект демонструє технічні можливості, але не призначений для масового використання. Це дозволяє уникнути потенційних проблем з серверами та інфраструктурою сайтів з вакансіями.',
+    'githubModal.alternative.title': 'Альтернативний підхід',
+    'githubModal.alternative.description': 'Замість публікації коду, я демонструю функціональність через інтерактивну демо-версію. Це дозволяє показати мої навички, не порушуючи права інших.',
+    'githubModal.alternative.note': 'Демо-версія використовує мок-дані та не звертається до реальних сайтів',
+    'githubModal.footer': 'Дякую за розуміння та підтримку етичного підходу до розробки',
+    'githubModal.close': 'Зрозуміло',
+    
     // Footer
     'footer.name': 'Микола Панкрат\'єв',
     'footer.description': 'Project Manager & Developer з 7-річним досвідом в управлінні проектами та технічними навичками.',
@@ -179,6 +194,21 @@ const translations = {
     'modal.english': 'English',
     'modal.done': 'Done',
     'nav.changeLanguage': 'Change Language',
+    
+    // GitHub Explanation Modal
+    'githubModal.title': 'Why is the project not on GitHub?',
+    'githubModal.subtitle': 'Explanation of ethical and legal aspects',
+    'githubModal.ethical.title': 'Ethical Considerations',
+    'githubModal.ethical.description': 'I deeply respect the work of job sites and their creators. These platforms create enormous value for employers and job seekers, investing significant resources in development and service maintenance.',
+    'githubModal.legal.title': 'Legal Compliance',
+    'githubModal.legal.description': 'Scraping data from commercial websites may violate their terms of service and Ukrainian legislation on intellectual property protection. I do not want to create precedents for abuse.',
+    'githubModal.technical.title': 'Technical Protection',
+    'githubModal.technical.description': 'My project demonstrates technical capabilities but is not intended for mass use. This avoids potential problems with servers and infrastructure of job sites.',
+    'githubModal.alternative.title': 'Alternative Approach',
+    'githubModal.alternative.description': 'Instead of publishing code, I demonstrate functionality through an interactive demo version. This allows me to showcase my skills without violating others\' rights.',
+    'githubModal.alternative.note': 'Demo version uses mock data and does not access real websites',
+    'githubModal.footer': 'Thank you for understanding and supporting the ethical approach to development',
+    'githubModal.close': 'Got it',
     
     // Footer
     'footer.name': 'Mykola Pankratiev',
