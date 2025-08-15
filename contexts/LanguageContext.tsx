@@ -70,6 +70,7 @@ const translations = {
     'projects.panParket.description': 'Повноцінний e-commerce проект з адміністративною панеллю для управління товарами, замовленнями та користувачами',
     'projects.panParket.tech': 'React, Node.js, Express, MongoDB, Stripe, AWS, Admin Panel',
     'projects.panParket.features': 'Каталог товарів, корзина, оплата, адмінка, управління замовленнями, аналітика продажів',
+    'projects.adminDemo': 'Admin Tools Demo',
     
     // Contact Section
     'contact.title': 'Зв\'язатися зі мною',
@@ -179,6 +180,7 @@ const translations = {
     'projects.panParket.description': 'Full-featured e-commerce project with administrative panel for managing products, orders and users',
     'projects.panParket.tech': 'React, Node.js, Express, MongoDB, Stripe, AWS, Admin Panel',
     'projects.panParket.features': 'Product catalog, shopping cart, payment, admin panel, order management, sales analytics',
+    'projects.adminDemo': 'Admin Tools Demo',
     
     // Contact Section
     'contact.title': 'Get in Touch',

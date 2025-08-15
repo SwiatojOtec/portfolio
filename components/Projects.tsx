@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useLanguage } from '../contexts/LanguageContext'
-import { ExternalLink, Github, Bot, Globe } from 'lucide-react'
+import { ExternalLink, Github, Bot, Globe, Shield } from 'lucide-react'
 
 export default function Projects() {
   const { t } = useLanguage()
@@ -103,15 +103,27 @@ export default function Projects() {
                 </div>
 
                 <div className="flex space-x-4">
-                  <motion.a
-                    href={project.github}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center space-x-2 px-6 py-3 bg-dark-400 hover:bg-dark-500 text-white rounded-lg transition-colors duration-300 border border-primary-500/30 hover:border-primary-500/60"
-                  >
-                    <Github size={20} />
-                    <span>{t('projects.github')}</span>
-                  </motion.a>
+                  {project.title.includes('Pan Parket') ? (
+                    <motion.button
+                      onClick={() => {/* Тут буде відкриття адмінки */}}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center space-x-2 px-6 py-3 bg-dark-400 hover:bg-dark-500 text-white rounded-lg transition-colors duration-300 border border-primary-500/30 hover:border-primary-500/60"
+                    >
+                      <Shield size={20} />
+                      <span>{t('projects.adminDemo')}</span>
+                    </motion.button>
+                  ) : (
+                    <motion.a
+                      href={project.github}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center space-x-2 px-6 py-3 bg-dark-400 hover:bg-dark-500 text-white rounded-lg transition-colors duration-300 border border-primary-500/30 hover:border-primary-500/60"
+                    >
+                      <Github size={20} />
+                      <span>{t('projects.github')}</span>
+                    </motion.a>
+                  )}
                   
                   <motion.a
                     href={project.live}
