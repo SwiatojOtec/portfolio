@@ -8,9 +8,6 @@ import {
   Users, 
   FileText, 
   Lightbulb, 
-  Settings, 
-  Zap,
-  LogOut,
   Plus,
   Edit,
   Trash2,
@@ -391,8 +388,6 @@ const NpcHubAdminDemo: React.FC = () => {
     { id: 'authors', label: 'Автори', icon: Users },
     { id: 'posts', label: 'Пости', icon: FileText },
     { id: 'proposals', label: 'Пропозиції', icon: Lightbulb },
-    { id: 'ign-parser', label: 'IGN Parser', icon: Settings },
-    { id: 'multi-parser', label: 'Multi Parser', icon: Zap },
   ];
 
   return (

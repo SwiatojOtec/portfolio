@@ -113,7 +113,7 @@ const translations = {
     'projects.npcHub.title': 'NPC HUB - Український ігровий портал',
     'projects.npcHub.description': 'Сучасний ігровий блог з AI-інтеграцією та автоматизацією контенту. Включає вбудоване API Gemini для SEO-оптимізації, рерайтингу статей та аналізу "гарячих" тем. Система автоматично генерує та публікує контент на основі трендів.',
     'projects.npcHub.tech': 'Next.js 15, React 19, TypeScript, PostgreSQL, Prisma ORM, Google Gemini AI, TailwindCSS, Ant Design',
-    'projects.npcHub.features': 'AI-рерайтинг статей, автоматичний парсинг новин, SEO-оптимізація, редактор тексту, аналіз трендів, кластеризація контенту, адмін-панель з AI-інструментами',
+    'projects.npcHub.features': 'AI-рерайтинг статей, SEO-оптимізація, редактор тексту, аналіз трендів, кластеризація контенту, адмін-панель з AI-інструментами',
     'projects.npcHub.adminDemo': 'Admin Panel Demo',
     
     // Contact Section
@@ -267,7 +267,7 @@ const translations = {
     'projects.npcHub.title': 'NPC HUB - Ukrainian Gaming Portal',
     'projects.npcHub.description': 'Modern gaming blog with AI integration and content automation. Features built-in Gemini API for SEO optimization, article rewriting, and "hot topic" analysis. The system automatically generates and publishes content based on trends.',
     'projects.npcHub.tech': 'Next.js 15, React 19, TypeScript, PostgreSQL, Prisma ORM, Google Gemini AI, TailwindCSS, Ant Design',
-    'projects.npcHub.features': 'AI article rewriting, automatic news parsing, SEO optimization, text editor, trend analysis, content clustering, admin panel with AI tools',
+    'projects.npcHub.features': 'AI article rewriting, SEO optimization, text editor, trend analysis, content clustering, admin panel with AI tools',
     'projects.npcHub.adminDemo': 'Admin Panel Demo',
     
     // Contact Section
