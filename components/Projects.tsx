@@ -2,12 +2,23 @@
 
 import { motion } from 'framer-motion'
 import { useLanguage } from '../contexts/LanguageContext'
-import { ExternalLink, Github, Bot } from 'lucide-react'
+import { ExternalLink, Github, Bot, Globe } from 'lucide-react'
 
 export default function Projects() {
   const { t } = useLanguage()
 
   const projects = [
+    {
+      title: t('projects.panParket.title'),
+      description: t('projects.panParket.description'),
+      tech: t('projects.panParket.tech'),
+      features: t('projects.panParket.features'),
+      image: '/api/placeholder/600/400',
+      github: '#',
+      live: 'https://www.pan-parket.com',
+      icon: Globe,
+      color: 'from-green-500 to-green-600'
+    },
     {
       title: t('projects.photography.title'),
       description: t('projects.photography.description'),
