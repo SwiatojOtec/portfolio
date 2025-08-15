@@ -59,6 +59,36 @@ interface Category {
   description?: string;
 }
 
+interface Client {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  note: string;
+  orders: number;
+  registrationDate: string;
+}
+
+interface Invoice {
+  id: string;
+  client: string;
+  order: string;
+  amount: number;
+  status: 'paid' | 'pending' | 'overdue';
+  dueDate: string;
+}
+
+interface Appeal {
+  id: string;
+  client: string;
+  contacts: string;
+  subject: string;
+  date: string;
+  status: 'new' | 'processing' | 'resolved';
+  message: string;
+}
+
 const PanParketAdminDemo: React.FC = () => {
   const [activeSection, setActiveSection] = useState('dashboard');
   const [searchQuery, setSearchQuery] = useState('');
@@ -86,6 +116,30 @@ const PanParketAdminDemo: React.FC = () => {
     { name: 'Супутні товари', subcategories: 1, products: 11 },
   ];
 
+  const clients: Client[] = [
+    { id: '1', name: 'Іван Петренко', email: 'ivan.petrenko@email.com', phone: '+380501234567', address: 'м. Київ, вул. Хрещатик, 1', note: 'Постійний клієнт, любить дубовий паркет', orders: 5, registrationDate: '2023-03-15' },
+    { id: '2', name: 'Марія Коваленко', email: 'maria.kovalenko@email.com', phone: '+380502345678', address: 'м. Львів, вул. Сихівська, 15', note: 'Зацікавлена в ламінаті для квартири', orders: 3, registrationDate: '2023-06-22' },
+    { id: '3', name: 'Олександр Сидоренко', email: 'oleksandr.sydorenko@email.com', phone: '+380503456789', address: 'м. Харків, вул. Сумська, 45', note: 'Будівельна компанія, великі обсяги', orders: 12, registrationDate: '2023-01-10' },
+    { id: '4', name: 'Анна Мельник', email: 'anna.melnyk@email.com', phone: '+380504567890', address: 'м. Одеса, вул. Дерибасівська, 22', note: 'Дизайнер інтер\'єрів, постійні замовлення', orders: 8, registrationDate: '2023-04-18' },
+    { id: '5', name: 'Віктор Шевченко', email: 'viktor.shevchenko@email.com', phone: '+380505678901', address: 'м. Дніпро, вул. Набережна, 8', note: 'Ремонт офісу, потрібна консультація', orders: 2, registrationDate: '2023-08-05' },
+  ];
+
+  const invoices: Invoice[] = [
+    { id: '#INV-001', client: 'Іван Петренко', order: '#1234', amount: 2500, status: 'paid', dueDate: '2024-01-20' },
+    { id: '#INV-002', client: 'Марія Коваленко', order: '#1235', amount: 1800, status: 'pending', dueDate: '2024-01-25' },
+    { id: '#INV-003', client: 'Олександр Сидоренко', order: '#1236', amount: 3200, status: 'paid', dueDate: '2024-01-18' },
+    { id: '#INV-004', client: 'Анна Мельник', order: '#1237', amount: 950, status: 'overdue', dueDate: '2024-01-10' },
+    { id: '#INV-005', client: 'Віктор Шевченко', order: '#1238', amount: 4200, status: 'pending', dueDate: '2024-01-30' },
+  ];
+
+  const appeals: Appeal[] = [
+    { id: '1', client: 'Іван Петренко', contacts: '+380501234567', subject: 'Питання щодо гарантії паркету', date: '2024-01-15', status: 'resolved', message: 'Чи можна покрити паркет лаком після укладання?' },
+    { id: '2', client: 'Марія Коваленко', contacts: 'maria.kovalenko@email.com', subject: 'Консультація по вибору ламінату', date: '2024-01-14', status: 'processing', message: 'Потрібна допомога у виборі ламінату для дитячої кімнати' },
+    { id: '3', client: 'Олександр Сидоренко', contacts: '+380503456789', subject: 'Розрахунок кількості матеріалу', date: '2024-01-13', status: 'new', message: 'Потрібен розрахунок для 150 м2 вінілової підлоги' },
+    { id: '4', client: 'Анна Мельник', contacts: 'anna.melnyk@email.com', subject: 'Запит на оптову ціну', date: '2024-01-12', status: 'resolved', message: 'Цікавить оптова ціна для 50 м2 підкладки' },
+    { id: '5', client: 'Віктор Шевченко', contacts: '+380505678901', subject: 'Технічна консультація', date: '2024-01-11', status: 'new', message: 'Які матеріали краще використовувати для офісу?' },
+  ];
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'confirmed': return 'bg-green-100 text-green-800';
@@ -100,6 +154,42 @@ const PanParketAdminDemo: React.FC = () => {
       case 'confirmed': return 'Підтверджено';
       case 'processing': return 'В обробці';
       case 'shipped': return 'Відправлено';
+      default: return 'Невідомо';
+    }
+  };
+
+  const getInvoiceStatusColor = (status: string) => {
+    switch (status) {
+      case 'paid': return 'bg-green-100 text-green-800';
+      case 'pending': return 'bg-yellow-100 text-yellow-800';
+      case 'overdue': return 'bg-red-100 text-red-800';
+      default: return 'bg-gray-100 text-gray-800';
+    }
+  };
+
+  const getInvoiceStatusText = (status: string) => {
+    switch (status) {
+      case 'paid': return 'Оплачено';
+      case 'pending': return 'Очікує оплати';
+      case 'overdue': return 'Прострочено';
+      default: return 'Невідомо';
+    }
+  };
+
+  const getAppealStatusColor = (status: string) => {
+    switch (status) {
+      case 'new': return 'bg-blue-100 text-blue-800';
+      case 'processing': return 'bg-yellow-100 text-yellow-800';
+      case 'resolved': return 'bg-green-100 text-green-800';
+      default: return 'bg-gray-100 text-gray-800';
+    }
+  };
+
+  const getAppealStatusText = (status: string) => {
+    switch (status) {
+      case 'new': return 'Нове';
+      case 'processing': return 'В обробці';
+      case 'resolved': return 'Вирішено';
       default: return 'Невідомо';
     }
   };
@@ -481,7 +571,7 @@ const PanParketAdminDemo: React.FC = () => {
           />
         </div>
         <div className="text-sm text-gray-500 flex items-center">
-          Знайдено: 0 з 0 клієнтів
+          Знайдено: {clients.length} з {clients.length} клієнтів
         </div>
       </div>
 
@@ -500,11 +590,46 @@ const PanParketAdminDemo: React.FC = () => {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              <tr>
-                <td colSpan={7} className="px-6 py-12 text-center text-gray-500">
-                  Клієнтів не знайдено
-                </td>
-              </tr>
+              {clients.map((client) => (
+                <tr key={client.id} className="hover:bg-gray-50">
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <div className="flex items-center">
+                      <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center text-red-600 text-sm font-medium mr-3">
+                        {client.name.charAt(0)}
+                      </div>
+                      <div>
+                        <div className="text-sm font-medium text-gray-900">{client.name}</div>
+                        <div className="text-sm text-gray-500">{client.email}</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <div className="text-sm text-gray-900">{client.phone}</div>
+                    <div className="text-sm text-gray-500">{client.email}</div>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <div className="text-sm text-gray-900 max-w-xs truncate">{client.address}</div>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <div className="text-sm text-gray-500 max-w-xs truncate">{client.note}</div>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{client.orders}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{client.registrationDate}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div className="flex space-x-2">
+                      <button className="p-1 hover:bg-gray-100 rounded">
+                        <Eye className="w-4 h-4 text-red-600" />
+                      </button>
+                      <button className="p-1 hover:bg-gray-100 rounded">
+                        <Edit className="w-4 h-4 text-red-600" />
+                      </button>
+                      <button className="p-1 hover:bg-gray-100 rounded">
+                        <Trash2 className="w-4 h-4 text-red-600" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -534,11 +659,33 @@ const PanParketAdminDemo: React.FC = () => {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              <tr>
-                <td colSpan={7} className="px-6 py-12 text-center text-gray-500">
-                  Рахунків не знайдено
-                </td>
-              </tr>
+              {invoices.map((invoice) => (
+                <tr key={invoice.id} className="hover:bg-gray-50">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{invoice.id}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{invoice.client}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{invoice.order}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">₴{invoice.amount.toLocaleString()}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getInvoiceStatusColor(invoice.status)}`}>
+                      {getInvoiceStatusText(invoice.status)}
+                    </span>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{invoice.dueDate}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div className="flex space-x-2">
+                      <button className="p-1 hover:bg-gray-100 rounded">
+                        <Eye className="w-4 h-4 text-red-600" />
+                      </button>
+                      <button className="p-1 hover:bg-gray-100 rounded">
+                        <Edit className="w-4 h-4 text-red-600" />
+                      </button>
+                      <button className="p-1 hover:bg-gray-100 rounded">
+                        <Trash2 className="w-4 h-4 text-red-600" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -567,30 +714,62 @@ const PanParketAdminDemo: React.FC = () => {
           <table className="w-full">
             <thead className="bg-gray-50">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Клієнт</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Контакти</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Тема</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Дата</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Статус</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Дії</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">КЛІЄНТ</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">КОНТАКТИ</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ТЕМА</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ДАТА</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">СТАТУС</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ДІЇ</th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              <tr>
-                <td colSpan={6} className="px-6 py-12 text-center text-gray-500">
-                  Показано 1 - 0 з 0
-                </td>
-              </tr>
+              {appeals.map((appeal) => (
+                <tr key={appeal.id} className="hover:bg-gray-50">
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <div className="text-sm font-medium text-gray-900">{appeal.client}</div>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <div className="text-sm text-gray-900">{appeal.contacts}</div>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <div className="text-sm text-gray-900 max-w-xs truncate">{appeal.subject}</div>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{appeal.date}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getAppealStatusColor(appeal.status)}`}>
+                      {getAppealStatusText(appeal.status)}
+                    </span>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div className="flex space-x-2">
+                      <button className="p-1 hover:bg-gray-100 rounded">
+                        <Eye className="w-4 h-4 text-red-600" />
+                      </button>
+                      <button className="p-1 hover:bg-gray-200 rounded">
+                        <Edit className="w-4 h-4 text-red-600" />
+                      </button>
+                      <button className="p-1 hover:bg-gray-100 rounded">
+                        <MessageSquare className="w-4 h-4 text-red-600" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
-        <div className="px-6 py-3 border-t border-gray-200 flex justify-end space-x-2">
-          <button className="px-3 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition-colors">
-            Попередня
-          </button>
-          <button className="px-3 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition-colors">
-            Наступна
-          </button>
+        <div className="px-6 py-3 border-t border-gray-200 flex justify-between items-center">
+          <div className="text-sm text-gray-500">
+            Показано 1 - {appeals.length} з {appeals.length}
+          </div>
+          <div className="flex space-x-2">
+            <button className="px-3 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition-colors">
+              Попередня
+            </button>
+            <button className="px-3 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition-colors">
+              Наступна
+            </button>
+          </div>
         </div>
       </div>
     </div>
