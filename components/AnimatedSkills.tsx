@@ -90,7 +90,7 @@ export default function AnimatedSkills() {
   ]
 
   return (
-    <section className="py-20 bg-dark-400 relative overflow-hidden">
+    <section id="skills" className="py-20 bg-dark-400 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div
           key={`${t('skills.title')}-${t('skills.subtitle')}`} // Force re-render when language changes

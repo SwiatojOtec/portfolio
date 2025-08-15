@@ -19,7 +19,6 @@ export default function Navigation() {
   }, [])
 
   const navItems = [
-    { href: '#home', label: t('nav.home') },
     { href: '#skills', label: t('nav.skills') },
     { href: '#projects', label: t('nav.projects') },
     { href: '#contact', label: t('nav.contact') },
@@ -42,8 +41,7 @@ export default function Navigation() {
             whileHover={{ scale: 1.05 }}
             className="text-xl font-bold text-white cursor-pointer"
             onClick={() => {
-              const homeSection = document.getElementById('home')
-              homeSection?.scrollIntoView({ behavior: 'smooth' })
+              window.scrollTo({ top: 0, behavior: 'smooth' })
             }}
           >
             {t('footer.name')}
