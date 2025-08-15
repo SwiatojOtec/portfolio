@@ -68,15 +68,35 @@ export default function Projects() {
                 className={`relative ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}
               >
                 <div className="relative overflow-hidden rounded-2xl">
-                  {/* Картинка для Photography Portfolio */}
-                  <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                    <img
-                      src="/images/photo-portfolio-screenshot.png"
-                      alt="Photography Portfolio - Михайло Панкрат'єв"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                  </div>
+                  {project.title.includes('Pan Parket') ? (
+                    // Картинка для Pan Parket
+                    <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+                      <img
+                        src="/images/pan-parket-screenshot.png"
+                        alt="Pan Parket - Система управління магазином паркету"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                    </div>
+                  ) : project.title.includes('Photography') ? (
+                    // Картинка для Photography Portfolio
+                    <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+                      <img
+                        src="/images/photo-portfolio-screenshot.png"
+                        alt="Photography Portfolio - Михайло Панкрат'єв"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                    </div>
+                  ) : (
+                    // Стандартна іконка для інших проектів
+                    <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+                      <div className={`w-24 h-24 rounded-2xl bg-gradient-to-r ${project.color} flex items-center justify-center`}>
+                        <project.icon className="w-12 h-12 text-white" />
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                  )}
                 </div>
               </motion.div>
 
