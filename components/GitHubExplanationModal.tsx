@@ -53,6 +53,21 @@ export default function GitHubExplanationModal({ isOpen, onClose }: GitHubExplan
 
             {/* Content */}
             <div className="p-6 space-y-6">
+              {/* Project Purpose */}
+              <div className="flex items-start space-x-4">
+                <div className="p-2 bg-yellow-500/20 rounded-lg">
+                  <Github className="w-5 h-5 text-yellow-400" />
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-2">
+                    {t('githubModal.purpose.title')}
+                  </h4>
+                  <p className="text-gray-300 leading-relaxed">
+                    {t('githubModal.purpose.description')}
+                  </p>
+                </div>
+              </div>
+
               {/* Ethical Considerations */}
               <div className="flex items-start space-x-4">
                 <div className="p-2 bg-blue-500/20 rounded-lg">
@@ -64,6 +79,21 @@ export default function GitHubExplanationModal({ isOpen, onClose }: GitHubExplan
                   </h4>
                   <p className="text-gray-300 leading-relaxed">
                     {t('githubModal.ethical.description')}
+                  </p>
+                </div>
+              </div>
+
+              {/* Technical Measures */}
+              <div className="flex items-start space-x-4">
+                <div className="p-2 bg-purple-500/20 rounded-lg">
+                  <Shield className="w-5 h-5 text-purple-400" />
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-2">
+                    {t('githubModal.technical.title')}
+                  </h4>
+                  <p className="text-gray-300 leading-relaxed">
+                    {t('githubModal.technical.description')}
                   </p>
                 </div>
               </div>
@@ -83,17 +113,17 @@ export default function GitHubExplanationModal({ isOpen, onClose }: GitHubExplan
                 </div>
               </div>
 
-              {/* Technical Protection */}
+              {/* Protection and Limitations */}
               <div className="flex items-start space-x-4">
-                <div className="p-2 bg-purple-500/20 rounded-lg">
-                  <Shield className="w-5 h-5 text-purple-400" />
+                <div className="p-2 bg-red-500/20 rounded-lg">
+                  <Shield className="w-5 h-5 text-red-400" />
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-white mb-2">
-                    {t('githubModal.technical.title')}
+                    {t('githubModal.protection.title')}
                   </h4>
                   <p className="text-gray-300 leading-relaxed">
-                    {t('githubModal.technical.description')}
+                    {t('githubModal.protection.description')}
                   </p>
                 </div>
               </div>
