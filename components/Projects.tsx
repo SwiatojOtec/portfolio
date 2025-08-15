@@ -2,12 +2,23 @@
 
 import { motion } from 'framer-motion'
 import { useLanguage } from '../contexts/LanguageContext'
-import { ExternalLink, Github, Bot, Globe, Shield } from 'lucide-react'
+import { ExternalLink, Github, Bot, Globe, Shield, Gamepad2 } from 'lucide-react'
 
 export default function Projects() {
   const { t } = useLanguage()
 
   const projects = [
+    {
+      title: t('projects.npcHub.title'),
+      description: t('projects.npcHub.description'),
+      tech: t('projects.npcHub.tech'),
+      features: t('projects.npcHub.features'),
+      image: '/api/placeholder/600/400',
+      github: '#',
+      live: 'https://npchub.com.ua',
+      icon: Gamepad2,
+      color: 'from-blue-500 to-blue-600'
+    },
     {
       title: t('projects.panParket.title'),
       description: t('projects.panParket.description'),
@@ -68,7 +79,17 @@ export default function Projects() {
                 className={`relative ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}
               >
                 <div className="relative overflow-hidden rounded-2xl">
-                  {project.title.includes('Pan Parket') ? (
+                  {project.title.includes('NPC HUB') ? (
+                    // Картинка для NPC HUB
+                    <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+                      <img
+                        src="/images/npc-hub.png"
+                        alt="NPC HUB - Український ігровий портал"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                    </div>
+                  ) : project.title.includes('Pan Parket') ? (
                     // Картинка для Pan Parket
                     <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
                       <img
@@ -123,7 +144,17 @@ export default function Projects() {
                 </div>
 
                 <div className="flex space-x-4">
-                  {project.title.includes('Pan Parket') ? (
+                  {project.title.includes('NPC HUB') ? (
+                    <motion.button
+                      onClick={() => window.open('/npc-hub-admin', '_blank')}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center space-x-2 px-6 py-3 bg-dark-400 hover:bg-dark-500 text-white rounded-lg transition-colors duration-300 border border-primary-500/30 hover:border-primary-500/60"
+                    >
+                      <Shield size={20} />
+                      <span>{t('projects.npcHub.adminDemo')}</span>
+                    </motion.button>
+                  ) : project.title.includes('Pan Parket') ? (
                     <motion.button
                       onClick={() => window.open('/admin-demo', '_blank')}
                       whileHover={{ scale: 1.05 }}
