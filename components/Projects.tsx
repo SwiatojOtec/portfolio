@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { ExternalLink, Github, Globe, Bot } from 'lucide-react'
 import JobScraperDemo from './JobScraperDemo'
-import InkSplashModal from './InkSplashModal'
+import VantaModal from './VantaModal'
 
 export default function Projects() {
   const { t } = useLanguage()
@@ -181,8 +181,8 @@ export default function Projects() {
         </motion.div>
       </div>
 
-      {/* Ink Splash Modal */}
-      <InkSplashModal 
+      {/* Vanta Modal */}
+      <VantaModal 
         isOpen={isDemoModalOpen} 
         onClose={() => setIsDemoModalOpen(false)} 
       />
