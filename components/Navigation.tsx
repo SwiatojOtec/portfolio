@@ -20,6 +20,7 @@ export default function Navigation() {
 
   const navItems = [
     { href: '#skills', label: t('nav.skills') },
+    { href: '#career', label: t('nav.career') },
     { href: '#projects', label: t('nav.projects') },
     { href: '#contact', label: t('nav.contact') },
   ]

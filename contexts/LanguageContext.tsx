@@ -19,6 +19,7 @@ const translations = {
   uk: {
     // Navigation
     'nav.home': 'Головна',
+    'nav.career': 'Кар\'єра',
     'nav.projects': 'Проекти',
     'nav.skills': 'Навички',
     'nav.contact': 'Контакти',
@@ -129,6 +130,7 @@ const translations = {
   en: {
     // Navigation
     'nav.home': 'Home',
+    'nav.career': 'Career',
     'nav.projects': 'Projects',
     'nav.skills': 'Skills',
     'nav.contact': 'Contact',

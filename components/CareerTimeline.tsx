@@ -104,7 +104,7 @@ export default function CareerTimeline() {
   ]
 
   return (
-    <section className="py-20 bg-dark-300 relative overflow-hidden">
+    <section id="career" className="py-20 bg-dark-300 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -123,7 +123,7 @@ export default function CareerTimeline() {
 
         <div ref={containerRef} className="relative">
           {/* Центральная линия */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary-500 via-blue-500 to-purple-500" />
+          <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary-500 via-blue-500 to-purple-500" />
           
           {/* Timeline items */}
           <div className="space-y-16"> {/* Уменьшил отступы с 32 на 16 */}
@@ -134,12 +134,12 @@ export default function CareerTimeline() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className={`flex items-center ${
-                  index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
+                className={`flex flex-col lg:flex-row items-center ${
+                  index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
                 }`}
               >
                 {/* Content */}
-                <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
+                <div className={`w-full lg:w-5/12 ${index % 2 === 0 ? 'lg:pr-8 lg:text-right' : 'lg:pl-8 lg:text-left'}`}>
                   <motion.div
                     whileHover={{ scale: 1.02, y: -5 }}
                     className="bg-dark-400 rounded-2xl p-6 border border-primary-500/30 hover:border-primary-500/60 transition-all duration-300"
@@ -183,7 +183,7 @@ export default function CareerTimeline() {
                 </div>
 
                 {/* Timeline dot */}
-                <div className="w-2/12 flex justify-center">
+                <div className="hidden lg:flex w-2/12 justify-center">
                   <motion.div
                     whileHover={{ scale: 1.5 }}
                     className="relative"
