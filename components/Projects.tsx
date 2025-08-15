@@ -1,30 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
-import { ExternalLink, Github, Globe, Bot } from 'lucide-react'
-
-import SimpleModal from './SimpleModal'
-import GitHubExplanationModal from './GitHubExplanationModal'
+import { ExternalLink, Github, Bot } from 'lucide-react'
 
 export default function Projects() {
   const { t } = useLanguage()
-  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false)
-  const [isGitHubModalOpen, setIsGitHubModalOpen] = useState(false)
 
   const projects = [
-    {
-      title: t('projects.jobScraper.title'),
-      description: t('projects.jobScraper.description'),
-      tech: t('projects.jobScraper.tech'),
-      features: t('projects.jobScraper.features'),
-      image: '/api/placeholder/600/400',
-      github: '#',
-      live: '#',
-      icon: Globe,
-      color: 'from-blue-500 to-blue-600'
-    },
     {
       title: t('projects.photography.title'),
       description: t('projects.photography.description'),
@@ -74,35 +57,15 @@ export default function Projects() {
                 className={`relative ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}
               >
                 <div className="relative overflow-hidden rounded-2xl">
-                  {project.title.includes('Job Scraper') ? (
-                    // Картинка для Job Scraper Platform
-                    <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                      <img
-                        src="/images/skill-matching-concept.png"
-                        alt="Job Scraper Platform - Skill Matching концепція"
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                    </div>
-                  ) : project.title.includes('Photography') ? (
-                    // Картинка для Photography Portfolio
-                    <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                      <img
-                        src="/images/photo-portfolio-screenshot.png"
-                        alt="Photography Portfolio - Михайло Панкрат'єв"
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                    </div>
-                  ) : (
-                    // Стандартна іконка для інших проектів
-                    <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                      <div className={`w-24 h-24 rounded-2xl bg-gradient-to-r ${project.color} flex items-center justify-center`}>
-                        <project.icon className="w-12 h-12 text-white" />
-                      </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                    </div>
-                  )}
+                  {/* Картинка для Photography Portfolio */}
+                  <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+                    <img
+                      src="/images/photo-portfolio-screenshot.png"
+                      alt="Photography Portfolio - Михайло Панкрат'єв"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                  </div>
                 </div>
               </motion.div>
 
@@ -129,51 +92,27 @@ export default function Projects() {
                 </div>
 
                 <div className="flex space-x-4">
-                  {project.title.includes('Job Scraper') ? (
-                    <motion.button
-                      onClick={() => setIsGitHubModalOpen(true)}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center space-x-2 px-6 py-3 bg-dark-400 hover:bg-dark-500 text-white rounded-lg transition-colors duration-300 border border-primary-500/30 hover:border-primary-500/60"
-                    >
-                      <Github size={20} />
-                      <span>{t('projects.github')}</span>
-                    </motion.button>
-                  ) : (
-                    <motion.a
-                      href={project.github}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center space-x-2 px-6 py-3 bg-dark-400 hover:bg-dark-500 text-white rounded-lg transition-colors duration-300 border border-primary-500/30 hover:border-primary-500/60"
-                    >
-                      <Github size={20} />
-                      <span>{t('projects.github')}</span>
-                    </motion.a>
-                  )}
+                  <motion.a
+                    href={project.github}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center space-x-2 px-6 py-3 bg-dark-400 hover:bg-dark-500 text-white rounded-lg transition-colors duration-300 border border-primary-500/30 hover:border-primary-500/60"
+                  >
+                    <Github size={20} />
+                    <span>{t('projects.github')}</span>
+                  </motion.a>
                   
-                  {project.title.includes('Job Scraper') ? (
-                    <motion.button
-                      onClick={() => setIsDemoModalOpen(true)}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center space-x-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                      <span>{t('projects.liveDemo')}</span>
-                    </motion.button>
-                  ) : (
-                    <motion.a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center space-x-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                      <span>{t('projects.liveDemo')}</span>
-                    </motion.a>
-                  )}
+                  <motion.a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center space-x-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors duration-300"
+                  >
+                    <ExternalLink size={20} />
+                    <span>{t('projects.liveDemo')}</span>
+                  </motion.a>
                 </div>
               </motion.div>
             </motion.div>
@@ -212,17 +151,6 @@ export default function Projects() {
         </motion.div>
       </div>
 
-      {/* Simple Modal */}
-      <SimpleModal 
-        isOpen={isDemoModalOpen} 
-        onClose={() => setIsDemoModalOpen(false)} 
-      />
-
-      {/* GitHub Explanation Modal */}
-      <GitHubExplanationModal
-        isOpen={isGitHubModalOpen}
-        onClose={() => setIsGitHubModalOpen(false)}
-      />
     </section>
   )
 } 
