@@ -42,63 +42,63 @@ export default function CareerTimeline() {
 
   const timelineItems: TimelineItem[] = [
     {
-      year: "2023 - Present",
-      title: "Owner - Flooring Retail Business",
-      company: "STILL HOUSE",
-      description: "Founded and launched the business, managing all operational and strategic processes.",
+      year: t('career.flooring.year'),
+      title: t('career.flooring.title'),
+      company: t('career.flooring.company'),
+      description: t('career.flooring.description'),
       icon: Building,
       color: "from-blue-500 to-blue-600",
       animationType: 'flooring',
       achievements: [
-        "Founded and launched the business",
-        "Researched and partnered with suppliers",
-        "Implemented inventory management system",
-        "Expanded services to include installation"
+        t('career.flooring.achievement1'),
+        t('career.flooring.achievement2'),
+        t('career.flooring.achievement3'),
+        t('career.flooring.achievement4')
       ]
     },
     {
-      year: "2020-2023",
-      title: "Assistant Director",
-      company: "PAN PIVDENBUD",
-      description: "Managed construction crews and ensured project delivery on time and within budget.",
+      year: t('career.construction.year'),
+      title: t('career.construction.title'),
+      company: t('career.construction.company'),
+      description: t('career.construction.description'),
       icon: Users,
       color: "from-green-500 to-green-600",
       animationType: 'construction',
       achievements: [
-        "Managed construction crews",
-        "Led communication with clients",
-        "Implemented tracking systems",
-        "Oversaw project execution"
+        t('career.construction.achievement1'),
+        t('career.construction.achievement2'),
+        t('career.construction.achievement3'),
+        t('career.construction.achievement4')
       ]
     },
     {
-      year: "2019-2020",
-      title: "Marketing Specialist",
-      company: "PAN PIVDENBUD",
-      description: "Developed and launched corporate website, planned and executed Google Ads campaigns.",
+      year: t('career.marketing.year'),
+      title: t('career.marketing.title'),
+      company: t('career.marketing.company'),
+      description: t('career.marketing.description'),
       icon: Rocket,
       color: "from-purple-500 to-purple-600",
       animationType: 'marketing',
       achievements: [
-        "Developed corporate website",
-        "Planned Google Ads campaigns",
-        "Designed corporate identity",
-        "Handled company registration"
+        t('career.marketing.achievement1'),
+        t('career.marketing.achievement2'),
+        t('career.marketing.achievement3'),
+        t('career.marketing.achievement4')
       ]
     },
     {
-      year: "2016-2019",
-      title: "Marketing and Management (BA)",
-      company: "University of Economics and Human Sciences - Warsaw, Poland",
-      description: "Studied marketing project management, process optimization, and business administration.",
+      year: t('career.education.year'),
+      title: t('career.education.title'),
+      company: t('career.education.company'),
+      description: t('career.education.description'),
       icon: Award,
       color: "from-orange-500 to-orange-600",
       animationType: 'education',
       achievements: [
-        "Marketing project management",
-        "Process optimization",
-        "Business administration",
-        "International business"
+        t('career.education.achievement1'),
+        t('career.education.achievement2'),
+        t('career.education.achievement3'),
+        t('career.education.achievement4')
       ]
     }
   ]
