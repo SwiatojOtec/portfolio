@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { ExternalLink, Github, Globe, Bot } from 'lucide-react'
-import JobScraperDemo from './JobScraperDemo'
+
 import SimpleModal from './SimpleModal'
 
 export default function Projects() {
@@ -129,27 +129,7 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Job Scraper Demo */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-20"
-        >
-          <div className="bg-gradient-to-r from-blue-600/20 to-blue-800/20 rounded-2xl p-8 border border-blue-500/30 mb-8">
-            <h3 className="text-2xl font-bold text-white mb-4 text-center">
-              🚀 Спробуйте Job Scraper Platform в дії!
-            </h3>
-            <p className="text-gray-300 text-lg mb-6 text-center">
-              Інтерактивна демонстрація функціональності парсера вакансій
-            </p>
-          </div>
-          
-          <div className="bg-gray-900 rounded-2xl overflow-hidden">
-            <JobScraperDemo />
-          </div>
-        </motion.div>
+
 
         {/* Additional Info */}
         <motion.div
