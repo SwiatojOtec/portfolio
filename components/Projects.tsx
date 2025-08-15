@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { ExternalLink, Github, Globe, Bot } from 'lucide-react'
 import JobScraperDemo from './JobScraperDemo'
-import VantaModal from './VantaModal'
+import SimpleModal from './SimpleModal'
 
 export default function Projects() {
   const { t } = useLanguage()
@@ -181,8 +181,8 @@ export default function Projects() {
         </motion.div>
       </div>
 
-      {/* Vanta Modal */}
-      <VantaModal 
+      {/* Simple Modal */}
+      <SimpleModal 
         isOpen={isDemoModalOpen} 
         onClose={() => setIsDemoModalOpen(false)} 
       />
