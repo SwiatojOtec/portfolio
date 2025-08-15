@@ -125,7 +125,7 @@ export default function Projects() {
                 <div className="flex space-x-4">
                   {project.title.includes('Pan Parket') ? (
                     <motion.button
-                      onClick={() => {/* Тут буде відкриття адмінки */}}
+                      onClick={() => window.open('/admin-demo', '_blank')}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       className="flex items-center space-x-2 px-6 py-3 bg-dark-400 hover:bg-dark-500 text-white rounded-lg transition-colors duration-300 border border-primary-500/30 hover:border-primary-500/60"
