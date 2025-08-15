@@ -1,11 +1,15 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { ExternalLink, Github, Globe, Bot } from 'lucide-react'
+import JobScraperDemo from './JobScraperDemo'
+import InkSplashModal from './InkSplashModal'
 
 export default function Projects() {
   const { t } = useLanguage()
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false)
 
   const projects = [
     {
@@ -110,20 +114,42 @@ export default function Projects() {
                     <span>{t('projects.github')}</span>
                   </motion.a>
                   
-                  <motion.a
-                    href={project.live}
+                  <motion.button
+                    onClick={() => project.title.includes('Job Scraper') ? setIsDemoModalOpen(true) : null}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="flex items-center space-x-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors duration-300"
                   >
                     <ExternalLink size={20} />
                     <span>{t('projects.liveDemo')}</span>
-                  </motion.a>
+                  </motion.button>
                 </div>
               </motion.div>
             </motion.div>
           ))}
         </div>
+
+        {/* Job Scraper Demo */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-20"
+        >
+          <div className="bg-gradient-to-r from-blue-600/20 to-blue-800/20 rounded-2xl p-8 border border-blue-500/30 mb-8">
+            <h3 className="text-2xl font-bold text-white mb-4 text-center">
+              🚀 Спробуйте Job Scraper Platform в дії!
+            </h3>
+            <p className="text-gray-300 text-lg mb-6 text-center">
+              Інтерактивна демонстрація функціональності парсера вакансій
+            </p>
+          </div>
+          
+          <div className="bg-gray-900 rounded-2xl overflow-hidden">
+            <JobScraperDemo />
+          </div>
+        </motion.div>
 
         {/* Additional Info */}
         <motion.div
@@ -154,6 +180,12 @@ export default function Projects() {
           </div>
         </motion.div>
       </div>
+
+      {/* Ink Splash Modal */}
+      <InkSplashModal 
+        isOpen={isDemoModalOpen} 
+        onClose={() => setIsDemoModalOpen(false)} 
+      />
     </section>
   )
 } 
