@@ -21,8 +21,8 @@ const VantaModal: React.FC<VantaModalProps> = ({ isOpen, onClose }) => {
       try {
         const VANTA: any = await import('vanta');
         
-        // Створюємо ефект "мережевої топології" з Vanta.TOPOLOGY
-        const effect = VANTA.TOPOLOGY({
+        // Створюємо ефект "мережевої анімації" з Vanta.NET
+        const effect = VANTA.NET({
           el: vantaRef.current,
           mouseControls: true,
           touchControls: true,
@@ -33,7 +33,9 @@ const VantaModal: React.FC<VantaModalProps> = ({ isOpen, onClose }) => {
           scaleMobile: 1.00,
           backgroundColor: 0x0a0a0a,
           color: 0x3b82f6,
-          spacing: 35.00
+          spacing: 35.00,
+          maxDistance: 25.00,
+          points: 20.00
         });
         
         setVantaEffect(effect);
@@ -112,7 +114,7 @@ const VantaModal: React.FC<VantaModalProps> = ({ isOpen, onClose }) => {
                 transition={{ delay: 0.4 }}
               >
                 <h2 className="text-2xl font-bold drop-shadow-lg">🕸️ Job Scraper Platform</h2>
-                <p className="text-gray-200 text-sm drop-shadow-lg">Демо версія з мережевою топологією</p>
+                <p className="text-gray-200 text-sm drop-shadow-lg">Демо версія з мережевою анімацією</p>
               </motion.div>
 
               {/* Контейнер демо */}

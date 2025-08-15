@@ -3,7 +3,7 @@ declare module 'vanta' {
     destroy(): void;
   }
 
-  interface VantaTOPOLOGYConfig {
+  interface VantaNETConfig {
     el: HTMLElement | null;
     mouseControls?: boolean;
     touchControls?: boolean;
@@ -15,12 +15,14 @@ declare module 'vanta' {
     backgroundColor?: number;
     color?: number;
     spacing?: number;
+    maxDistance?: number;
+    points?: number;
   }
 
   interface Vanta {
-    TOPOLOGY(config: VantaTOPOLOGYConfig): VantaEffect;
+    NET(config: VantaNETConfig): VantaEffect;
+    TOPOLOGY(config: any): VantaEffect;
     FOG(config: any): VantaEffect;
-    NET(config: any): VantaEffect;
     WAVES(config: any): VantaEffect;
     BIRDS(config: any): VantaEffect;
     CLOUDS(config: any): VantaEffect;
