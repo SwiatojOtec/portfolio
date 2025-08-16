@@ -20,9 +20,9 @@ export default function Contact() {
     try {
       const result = await emailjs.sendForm(
         'service_23bt8s4', // Ваш Service ID
-        'template_xxxxx', // Template ID (потрібно створити)
+        'template_p3rml6v', // Ваш Template ID
         formRef.current!,
-        'public_key_xxxxx' // Public Key (потрібно знайти)
+        'wgQecvvVwpxHeaj1U' // Ваш Public Key
       )
       
       setSubmitStatus('success')
