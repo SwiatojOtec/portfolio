@@ -3,9 +3,37 @@
 import { motion } from 'framer-motion'
 import { useLanguage } from '../contexts/LanguageContext'
 import { Mail, Linkedin, Send } from 'lucide-react'
+import { useState, useRef } from 'react'
+import emailjs from '@emailjs/browser'
 
 export default function Contact() {
   const { t } = useLanguage()
+  const formRef = useRef<HTMLFormElement>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    try {
+      const result = await emailjs.sendForm(
+        'service_23bt8s4', // Ваш Service ID
+        'template_xxxxx', // Template ID (потрібно створити)
+        formRef.current!,
+        'public_key_xxxxx' // Public Key (потрібно знайти)
+      )
+      
+      setSubmitStatus('success')
+      formRef.current?.reset()
+    } catch (error) {
+      console.error('EmailJS error:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <section id="contact" className="py-20 bg-dark-400">
@@ -110,7 +138,7 @@ export default function Contact() {
               {t('contact.form.title')}
             </h3>
             
-            <form className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-gray-300 mb-2">
                   {t('contact.form.name')}
@@ -118,8 +146,10 @@ export default function Contact() {
                 <input
                   type="text"
                   id="name"
+                  name="user_name"
                   className="w-full px-4 py-3 bg-dark-200 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-500 transition-colors duration-300"
                   placeholder={t('contact.form.namePlaceholder')}
+                  required
                 />
               </div>
               
@@ -130,8 +160,10 @@ export default function Contact() {
                 <input
                   type="email"
                   id="email"
+                  name="user_email"
                   className="w-full px-4 py-3 bg-dark-200 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-500 transition-colors duration-300"
                   placeholder="your@email.com"
+                  required
                 />
               </div>
               
@@ -141,22 +173,63 @@ export default function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={5}
                   className="w-full px-4 py-3 bg-dark-200 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-500 transition-colors duration-300 resize-none"
                   placeholder={t('contact.form.messagePlaceholder')}
+                  required
                 ></textarea>
               </div>
               
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors duration-300 flex items-center justify-center space-x-2"
+                disabled={isSubmitting}
+                whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                className={`w-full px-6 py-3 font-semibold rounded-lg transition-colors duration-300 flex items-center justify-center space-x-2 ${
+                  isSubmitting 
+                    ? 'bg-gray-600 cursor-not-allowed' 
+                    : 'bg-primary-600 hover:bg-primary-700'
+                }`}
               >
-                <Send className="w-5 h-5" />
-                <span>{t('contact.form.send')}</span>
+                {isSubmitting ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    <span>Відправляється...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5" />
+                    <span>{t('contact.form.send')}</span>
+                  </>
+                )}
               </motion.button>
             </form>
+
+            {/* Status Messages */}
+            {submitStatus === 'success' && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-4 p-4 bg-green-600/20 border border-green-500/30 rounded-lg"
+              >
+                <p className="text-green-400 text-center">
+                  ✅ Повідомлення успішно відправлено! Дякую за звернення.
+                </p>
+              </motion.div>
+            )}
+
+            {submitStatus === 'error' && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-4 p-4 bg-red-600/20 border border-red-500/30 rounded-lg"
+              >
+                <p className="text-red-400 text-center">
+                  ❌ Помилка відправки. Спробуйте ще раз або напишіть на email.
+                </p>
+              </motion.div>
+            )}
           </motion.div>
         </div>
       </div>
