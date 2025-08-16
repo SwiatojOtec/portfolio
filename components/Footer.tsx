@@ -44,7 +44,9 @@ export default function Footer() {
                 <Linkedin size={20} />
               </motion.a>
               <motion.a
-                href="#"
+                href="https://github.com/SwiatojOtec"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
                 className="p-2 bg-gray-600 rounded-lg text-white hover:bg-gray-700 transition-colors duration-300"
               >
