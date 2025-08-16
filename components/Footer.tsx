@@ -140,7 +140,16 @@ export default function Footer() {
           className="border-t border-gray-700 mt-8 pt-8 text-center"
         >
           <p className="text-gray-400">
-            {t('footer.rights')}
+            {t('footer.rights')}{' '}
+            <a 
+              href={t('footer.githubLink')} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary-400 hover:text-primary-300 transition-colors duration-300"
+            >
+              GitHub
+            </a>
+            , {t('footer.githubText')}
           </p>
         </motion.div>
       </div>

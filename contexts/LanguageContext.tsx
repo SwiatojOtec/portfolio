@@ -168,7 +168,9 @@ const translations = {
     'footer.quickLinks': 'Швидкі посилання',
     'footer.contacts': 'Контакти',
     'footer.languages': 'Мови: Українська, Польська, Англійська',
-    'footer.rights': '© 2025 Всі права захищені. Зроблено з ❤️'
+    'footer.rights': 'Це портфоліо є у відкритому доступі за посиланням',
+    'footer.githubLink': 'https://github.com/SwiatojOtec/portfolio',
+    'footer.githubText': 'якщо хочете - беріть'
   },
   en: {
     // Navigation
@@ -322,7 +324,9 @@ const translations = {
     'footer.quickLinks': 'Quick Links',
     'footer.contacts': 'Contacts',
     'footer.languages': 'Languages: Ukrainian, Polish, English',
-    'footer.rights': '© 2025 All rights reserved. Made with ❤️'
+    'footer.rights': 'This portfolio is open source at',
+    'footer.githubLink': 'https://github.com/SwiatojOtec/portfolio',
+    'footer.githubText': 'feel free to use it'
   }
 }
 
