@@ -22,7 +22,7 @@ export default function Contact() {
         'service_23bt8s4', // Ваш Service ID
         'template_p3rml6v', // Ваш Template ID
         formRef.current!,
-        'wgQecvvVwpxHeaj1U' // Ваш Public Key
+        'wgQecvwVwpxHeaj1U' // Ваш Public Key
       )
       
       setSubmitStatus('success')
