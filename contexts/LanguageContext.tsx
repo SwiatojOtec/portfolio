@@ -170,7 +170,7 @@ const translations = {
     'footer.languages': 'Мови: Українська, Польська, Англійська',
     'footer.rights': 'Це портфоліо є у відкритому доступі за посиланням',
     'footer.githubLink': 'https://github.com/SwiatojOtec/portfolio',
-    'footer.githubText': 'якщо хочете - беріть'
+    'footer.githubText': 'використовуйте на здоров\'я!'
   },
   en: {
     // Navigation
@@ -326,7 +326,7 @@ const translations = {
     'footer.languages': 'Languages: Ukrainian, Polish, English',
     'footer.rights': 'This portfolio is open source at',
     'footer.githubLink': 'https://github.com/SwiatojOtec/portfolio',
-    'footer.githubText': 'feel free to use it'
+    'footer.githubText': 'feel free to fork and star!'
   }
 }
 
